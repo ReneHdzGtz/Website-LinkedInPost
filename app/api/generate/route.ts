@@ -50,8 +50,10 @@ IMPORTANTE:
     return NextResponse.json({ post: content.text });
   } catch (error) {
     console.error("Error generating LinkedIn post:", error);
+    const message =
+      error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Error al generar el post. Verifica tu API key." },
+      { error: `Error al generar el post: ${message}` },
       { status: 500 }
     );
   }
