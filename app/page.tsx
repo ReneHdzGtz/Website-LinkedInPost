@@ -4,11 +4,11 @@ import { useState } from "react";
 
 const EXAMPLES = [
   "Me echaron del trabajo",
-  "Me arrestaron por fraude",
+  "I got fired from my job",
   "Reprobé mi examen de certificación por tercera vez",
-  "Mi startup quebró y perdí todos mis ahorros",
+  "My startup went bankrupt",
   "Me bloquearon en Twitter",
-  "Llegué tarde a todas las reuniones esta semana",
+  "I showed up late to every meeting this week",
 ];
 
 export default function Home() {
@@ -196,31 +196,54 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Generate button */}
+          {/* Generate / Copy button */}
           <div className="border-t border-gray-200 px-5 py-4 flex items-center justify-between bg-gray-50/50">
-            <p className="text-xs text-gray-400">⌘ + Enter para generar</p>
-            <button
-              onClick={handleGenerate}
-              disabled={loading || !situation.trim()}
-              className="bg-[#0A66C2] hover:bg-[#004182] disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-2.5 rounded-full transition-colors flex items-center gap-2"
-            >
-              {loading ? (
-                <>
-                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Generando...
-                </>
-              ) : (
-                <>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  Traducir a LinkedIn
-                </>
-              )}
-            </button>
+            <p className="text-xs text-gray-400">{linkedinPost ? "" : "⌘ + Enter para generar"}</p>
+            {linkedinPost ? (
+              <button
+                onClick={handleCopy}
+                className="bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-medium px-6 py-2.5 rounded-full transition-colors flex items-center gap-2"
+              >
+                {copied ? (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    ¡Copiado!
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    Copiar post
+                  </>
+                )}
+              </button>
+            ) : (
+              <button
+                onClick={handleGenerate}
+                disabled={loading || !situation.trim()}
+                className="bg-[#0A66C2] hover:bg-[#004182] disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-sm font-medium px-6 py-2.5 rounded-full transition-colors flex items-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Generando...
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Traducir a LinkedIn
+                  </>
+                )}
+              </button>
+            )}
           </div>
         </div>
 
