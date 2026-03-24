@@ -1,8 +1,8 @@
-import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function POST(request: NextRequest) {
@@ -16,16 +16,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await client.messages.create({
-      model: "claude-opus-4-6",
+    const response = await client.chat.completions.create({
+      model: "gpt-4o",
       max_tokens: 1024,
       messages: [
         {
-          role: "user",
-          content: situation,
-        },
-      ],
-      system: `Eres un experto en transformar situaciones cotidianas (buenas, malas o neutras) en posts de LinkedIn con el típico tono motivacional, positivo y lleno de buzzwords corporativos.
+          role: "system",
+          content: `Eres un experto en transformar situaciones cotidianas (buenas, malas o neutras) en posts de LinkedIn con el típico tono motivacional, positivo y lleno de buzzwords corporativos.
 
 Tu trabajo es tomar lo que le pasó a alguien y convertirlo en un post de LinkedIn que:
 - Enmarca todo como una "oportunidad de crecimiento" o "nuevo capítulo emocionante"
@@ -40,14 +37,20 @@ IMPORTANTE:
 - No importa qué tan mala o ridícula sea la situación real, siempre transfórmala en algo positivo y profesional.
 - Responde ÚNICAMENTE con el post de LinkedIn, sin explicaciones adicionales.
 - Escribe el post en el mismo idioma que la situación recibida (si es en español, el post en español; si es en inglés, el post en inglés).`,
+        },
+        {
+          role: "user",
+          content: situation,
+        },
+      ],
     });
 
-    const content = response.content[0];
-    if (content.type !== "text") {
+    const content = response.choices[0].message.content;
+    if (!content) {
       throw new Error("Unexpected response type");
     }
 
-    return NextResponse.json({ post: content.text });
+    return NextResponse.json({ post: content });
   } catch (error) {
     console.error("Error generating LinkedIn post:", error);
     const message =
