@@ -91,8 +91,38 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between">
             <span className="font-[family-name:var(--font-rene)] text-4xl text-gray-900 leading-none">René</span>
+            <div className="flex items-center gap-3">
+              {/* Twitter / X */}
+              <a href="https://x.com/rene__hdz" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" className="text-gray-400 hover:text-gray-900 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              {/* LinkedIn */}
+              <a href="https://www.linkedin.com/in/renehdzgtz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-[#0A66C2] transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              {/* Farcaster */}
+              <a href="https://farcaster.xyz/renehdz" target="_blank" rel="noopener noreferrer" aria-label="Farcaster" className="text-gray-400 hover:text-[#8B5CF6] transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.7 0h.6C18.8 0 24 5.2 24 11.7v.6C24 18.8 18.8 24 12.3 24h-.6C5.2 24 0 18.8 0 12.3v-.6C0 5.2 5.2 0 11.7 0zm-3.3 6l-.9 2.6h-.8V18h2.5v-5h3.6v5H16V8.6h-.8L14.3 6H8.4z" />
+                </svg>
+              </a>
+              {/* Portfolio */}
+              <a href="https://drive.google.com/file/d/1iF7YoXYz9HzkmUQVU9ohDQWRJgf7GbdG/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Portafolio" className="text-gray-400 hover:text-gray-700 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -110,9 +140,35 @@ export default function Home() {
             <p className="text-gray-400 text-base max-w-md mx-auto">
               Espero que te hayas divertido convirtiendo tus tragedias en posts virales de LinkedIn.
             </p>
-            <p className="text-gray-400 text-sm mt-8">
+            <p className="text-gray-400 text-sm mt-8 mb-4">
               — René
             </p>
+            <div className="flex items-center justify-center gap-4">
+              <a href="https://x.com/rene__hdz" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X" className="text-gray-400 hover:text-gray-900 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/renehdzgtz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-[#0A66C2] transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a href="https://farcaster.xyz/renehdz" target="_blank" rel="noopener noreferrer" aria-label="Farcaster" className="text-gray-400 hover:text-[#8B5CF6] transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.7 0h.6C18.8 0 24 5.2 24 11.7v.6C24 18.8 18.8 24 12.3 24h-.6C5.2 24 0 18.8 0 12.3v-.6C0 5.2 5.2 0 11.7 0zm-3.3 6l-.9 2.6h-.8V18h2.5v-5h3.6v5H16V8.6h-.8L14.3 6H8.4z" />
+                </svg>
+              </a>
+              <a href="https://drive.google.com/file/d/1iF7YoXYz9HzkmUQVU9ohDQWRJgf7GbdG/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Portafolio" className="text-gray-400 hover:text-gray-700 transition-colors">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </a>
+            </div>
           </div>
         ) : (
           <>
