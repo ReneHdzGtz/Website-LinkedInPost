@@ -9,9 +9,16 @@ export async function POST(request: NextRequest) {
   try {
     const { situation } = await request.json();
 
-    if (!situation?.trim()) {
+    if (!situation || typeof situation !== "string" || !situation.trim()) {
       return NextResponse.json(
         { error: "Se requiere una situación" },
+        { status: 400 }
+      );
+    }
+
+    if (situation.length > 500) {
+      return NextResponse.json(
+        { error: "La situación no puede exceder 500 caracteres" },
         { status: 400 }
       );
     }
